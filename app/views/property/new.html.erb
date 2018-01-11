@@ -1,15 +1,14 @@
 <h1>Property</h1>
 
-<h2><%= @test.inspect %></h2>
 
-<img src="http://power.itp.ac.cn/~jmyang/funny/fun4.jpg">
+<%= form_tag({controller: "property", action: "show"}, method: "get") do %>
+  <%= label_tag(:location, "Search Location:") %>
+  <%= text_field_tag(:location) %>
 
-<%= form_with scope: :property, local: true do |form| %>
-  <p>
-    <%= form.label :address %><br>
-    <%= form.text_field :addr %>
-  </p>
-  <p>
-    <%= form.submit %>
-  </p>
+  <%= label_tag(:rooms, "number of bedrooms:") %>
+  <%= text_field_tag(:rooms) %>
+
+  <%= submit_tag("Search") %>
+
+
 <% end %>
